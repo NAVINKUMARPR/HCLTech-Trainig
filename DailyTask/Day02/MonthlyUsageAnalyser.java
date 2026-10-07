@@ -22,15 +22,15 @@ public class MonthlyUsageAnalyser {
 
         // Month names array for clean display
         String[] months = {
-            "January", "February", "March", "April",
-            "May", "June", "July", "August",
-            "September", "October", "November", "December"
+                "January", "February", "March", "April",
+                "May", "June", "July", "August",
+                "September", "October", "November", "December"
         };
 
         // 2. 1-D Array: 12 months usage
         int[] monthlyUsage = {
-            120, 250, 180, 320, 450, 510,
-            290, 380, 600, 720, 410, 550
+                120, 250, 180, 320, 450, 510,
+                290, 380, 600, 720, 410, 550
         };
 
         // --- SECTION 1: 12 MONTH USAGE DISPLAY ---
@@ -61,10 +61,8 @@ public class MonthlyUsageAnalyser {
         double averageUsage = (double) totalUsage / monthlyUsage.length;
 
         // 5. Character Grade using Nested Ternary Operator
-        char grade = (averageUsage >= SLAB_3) ? 'A' :
-                     (averageUsage >= 400)    ? 'B' :
-                     (averageUsage >= SLAB_2) ? 'C' :
-                     (averageUsage >= 200)    ? 'D' : 'E';
+        char grade = (averageUsage >= SLAB_3) ? 'A'
+                : (averageUsage >= 400) ? 'B' : (averageUsage >= SLAB_2) ? 'C' : (averageUsage >= 200) ? 'D' : 'E';
 
         // --- SECTION 2: OVERALL ANALYSIS ---
         System.out.println("----- OVERALL ANALYSIS -----");
@@ -88,9 +86,9 @@ public class MonthlyUsageAnalyser {
 
         // 7. 2-D Array: Usage for 3 houses across 12 months
         int[][] houseUsage = {
-            {120, 250, 180, 320, 450, 510, 290, 380, 600, 720, 410, 550},
-            {200, 300, 250, 400, 500, 450, 350, 420, 550, 650, 480, 600},
-            {100, 180, 220, 280, 350, 400, 300, 360, 500, 580, 390, 450}
+                { 120, 250, 180, 320, 450, 510, 290, 380, 600, 720, 410, 550 },
+                { 200, 300, 250, 400, 500, 450, 350, 420, 550, 650, 480, 600 },
+                { 100, 180, 220, 280, 350, 400, 300, 360, 500, 580, 390, 450 }
         };
 
         // --- SECTION 3: HOUSE-WISE ANALYSIS USING NESTED LOOPS ---
@@ -113,10 +111,8 @@ public class MonthlyUsageAnalyser {
             }
 
             double houseAvg = (double) houseTotal / houseUsage[h].length;
-            char houseGrade = (houseAvg >= SLAB_3) ? 'A' :
-                              (houseAvg >= 400)    ? 'B' :
-                              (houseAvg >= SLAB_2) ? 'C' :
-                              (houseAvg >= 200)    ? 'D' : 'E';
+            char houseGrade = (houseAvg >= SLAB_3) ? 'A'
+                    : (houseAvg >= 400) ? 'B' : (houseAvg >= SLAB_2) ? 'C' : (houseAvg >= 200) ? 'D' : 'E';
 
             System.out.println("House " + (h + 1) + ":");
             System.out.println("  Total   : " + houseTotal + " units");

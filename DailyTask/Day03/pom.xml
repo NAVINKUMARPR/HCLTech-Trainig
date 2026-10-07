@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hcl.atm</groupId>
+    <artifactId>atm-simulator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>ATM Simulator</name>
+    <description>Day 3 Task: ATM Simulator with Maven Profiles (dev/prod)</description>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- Profiles: Dev and Prod -->
+    <profiles>
+        <!-- DEV Profile (Active by Default) -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.name>Development (Sandbox)</env.name>
+                <bank.name>HCL Bank (Dev Sandbox)</bank.name>
+                <daily.limit>100000</daily.limit>
+            </properties>
+        </profile>
+
+        <!-- PROD Profile -->
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env.name>Production (Live)</env.name>
+                <bank.name>HCL Premier Bank</bank.name>
+                <daily.limit>25000</daily.limit>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <!-- Enable Resource Filtering so ${property} placeholders in app.properties are replaced -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                </configuration>
+            </plugin>
+
+            <!-- Executable JAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.hcl.atm.ATMSimulator</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

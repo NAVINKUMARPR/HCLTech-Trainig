@@ -1,6 +1,9 @@
 # Ignore compiled Java bytecode
 *.class
 
+# Ignore Maven build output
+target/
+
 # Ignore IDE settings
 .idea/
 *.iml

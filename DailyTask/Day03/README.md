@@ -1,4 +1,5 @@
-# Day 3: ATM Simulator (Maven Project & Profiles)
+# Day 3 task completed
+
 
 ## 📌 Summary
 A console-based Java ATM Simulator built as a standard **Apache Maven** project. It showcases control flow structures (`do-while`, `switch`, `break`, `continue`, enhanced-for loop), input validation, and Maven build configurations including **environment profiles (`dev` and `prod`)** with automated resource filtering.
